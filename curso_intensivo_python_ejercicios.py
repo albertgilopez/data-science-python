@@ -25,6 +25,13 @@ print("EJERCICIO 4. En una sola línea asigna 'Albert' a la variable nombre y 'G
 
 nombre = "Albert"
 apellido = "Gil"
+
+# Otra opción, más enfocada a la solución y método tuple unpacking
+
+# nombre, apellido = ["Albert", "Gil"]
+# print(nombre)
+# print(apellido)
+
 print("El resultado del ejercicio 4 es {} {}.".format(nombre,apellido))
 
 # Ejercicio 5
@@ -77,6 +84,9 @@ print("El tipo de datos es {}".format(type(texto)))
 print("EJERCICIO 12. Crea una lista de los números impares entre 0 y 30")
 
 lista_impares = list(range(0,30)) # La sintaxis es range (inicio, final, secuencia)
+
+# Era más fácil aplicar list(range(1,30,2))
+
 lista_impares = [num for num in lista_impares if num % 2 != 0]
 print(lista_impares)
 
@@ -112,6 +122,9 @@ print("El resultado del ejercicio 17 es {}.".format(ejercicio17))
 # Ejercicio 18
 print("EJERCICIO 18. Ordena alfabéticamente la lista de amigos y saca el resultado por consola")
 lista_amigos.sort()
+
+# Para que se ordenen sin tener en cuenta las mayúsculas aplicamos el parámetro key = str.lower dentro de sort()
+
 print(lista_amigos)
 
 # Ejercicio 19
@@ -130,6 +143,11 @@ print("EJERCICIO 21. Usa list comprehension para sacar por consola sólo los nom
 # Ejercicio 22
 print("EJERCICIO 22. Ahora haz lo mismo pero sin usar list comprehension (con for e if 'clásicos')")
 [print(nombre) for nombre in lista_amigos if nombre.startswith("M")]
+
+""" for nombre in amigos:
+	if nombre.startswith("M"):
+		print(nombre)
+"""
 
 # Ejercicio 23
 print("EJERCICIO 23. Crea un contador de 'nombres que empiecen por M', recorre toda la lista con un for, suma 1 cada vez que encuentres uno e imprime el resultado final.")
@@ -184,7 +202,10 @@ Saca por pantalla chicos y chicas"""
 lista_chicos = list()
 lista_chicas = list()
 
-for chico,chica in diccionario.items() :
+for chico,chica in diccionario.items() : # Si no usamos itemos solo no devuelve las claves
+
+	# Aplicamos tupple unpacking
+
 	lista_chicos.append(chico)
 	lista_chicas.append(chica)
 
@@ -281,8 +302,10 @@ import statistics as st
 imcs = list()
 
 for valor in range(100):
-	peso = rd.randrange(50,100)
-	altura = rd.randrange(150,200)
+
+	peso = rd.randrange(50,100) # O utilizar la función randint()
+	altura = rd.randrange(150,200) # O utilizar la función randint()
+	
 	altura = altura / 100
 
 	calcular_imc = lambda peso, altura: peso / (altura ** 2)
@@ -294,5 +317,3 @@ media = st.mean(imcs)
 desviacion = st.pstdev(imcs)
 
 print("La mediana es {} y la desviación {}".format(media,desviacion))
-
-
